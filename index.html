@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中秋头像生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌕 中秋头像生成器 🏮</h1>
+            <p class="subtitle">为你的头像添加中秋节气氛</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 上传区域 -->
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="upload-placeholder">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>点击或拖拽上传头像</p>
+                        <span class="upload-hint">支持 JPG, PNG, GIF 格式</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 预览区域 -->
+            <div class="preview-section">
+                <div class="canvas-container">
+                    <canvas id="canvas"></canvas>
+                    <div id="placeholder" class="canvas-placeholder">
+                        <span>上传图片后预览</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel" id="controlPanel" style="display: none;">
+            <h3>🎨 装饰选项</h3>
+            
+            <div class="control-group">
+                <label>选择装饰框架：</label>
+                <div class="frame-options">
+                    <button class="frame-btn active" data-frame="moon">🌙 月亮框</button>
+                    <button class="frame-btn" data-frame="rabbit">🐰 玉兔框</button>
+                    <button class="frame-btn" data-frame="mooncake">🥮 月饼框</button>
+                    <button class="frame-btn" data-frame="lantern">🏮 灯笼框</button>
+                    <button class="frame-btn" data-frame="none">无框架</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="addText" checked>
+                    添加祝福文字
+                </label>
+                <input type="text" id="customText" value="中秋快乐" placeholder="输入自定义文字" class="text-input">
+            </div>
+
+            <div class="control-group">
+                <label>圆角程度：</label>
+                <input type="range" id="roundness" min="0" max="50" value="50" class="slider">
+                <span id="roundnessValue">50%</span>
+            </div>
+
+            <div class="control-group">
+                <label>装饰大小：</label>
+                <input type="range" id="decorationSize" min="50" max="150" value="100" class="slider">
+                <span id="decorationSizeValue">100%</span>
+            </div>
+
+            <div class="action-buttons">
+                <button id="downloadBtn" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-15"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载头像
+                </button>
+                <button id="resetBtn" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="1 4 1 10 7 10"></polyline>
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                    </svg>
+                    重新上传
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
